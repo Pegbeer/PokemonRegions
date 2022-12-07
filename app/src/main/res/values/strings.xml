@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">PokemonRegions</string>
     <string name="facebook_application_id" translatable="false">1573390259777879</string>
+    <string name="facebook_client_token" translatable="false">0e6419c2796ae0193667d4c1c8145878</string>
     <string name="facebook_login_protocol_scheme" translatable="false">fb1573390259777879</string>
 </resources>
