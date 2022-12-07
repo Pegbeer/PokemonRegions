@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "886961105036",
+    "project_id": "pokemonregions-1324d",
+    "storage_bucket": "pokemonregions-1324d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:886961105036:android:84e2816b7f9a34b031b3a9",
+        "android_client_info": {
+          "package_name": "com.example.pokemonregions"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "886961105036-8k56ge9rrf48ok0764ql1rckkas2fvq6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-ZoGLjYfr9TJaXBcNhjJ5hvSekXxa6GI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "886961105036-8k56ge9rrf48ok0764ql1rckkas2fvq6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
