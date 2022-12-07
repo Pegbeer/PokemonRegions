@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pokemon Team Maker</string>
+    <string name="login_head">Bienvenido al creador de equipos pokémon.</string>
+    <string name="login_sub_title">Antes de empezar a crear tus dream team debemos verificar tu perfil.</string>
+    <string name="login_with_facebook">Iniciar sesión con Facebook.</string>
+    <string name="login_with_google">Iniciar sesión con Google</string>
+</resources>

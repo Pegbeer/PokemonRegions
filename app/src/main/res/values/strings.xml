@@ -1,6 +1,11 @@
 <resources>
-    <string name="app_name">PokemonRegions</string>
+    <string name="app_name">Pokemon Team Maker</string>
     <string name="facebook_application_id" translatable="false">1573390259777879</string>
     <string name="facebook_client_token" translatable="false">0e6419c2796ae0193667d4c1c8145878</string>
     <string name="facebook_login_protocol_scheme" translatable="false">fb1573390259777879</string>
+
+    <string name="login_head">Welcome to the Pokemon Team Maker</string>
+    <string name="login_sub_title">Before start making your dream teams we have to ensure your profile</string>
+    <string name="login_with_facebook">Sign in with Facebook.</string>
+    <string name="login_with_google">Sign in with Google</string>
 </resources>

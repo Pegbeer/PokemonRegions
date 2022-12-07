@@ -2,8 +2,7 @@ package com.example.pokemonregions
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.facebook.FacebookSdk
-import com.facebook.appevents.AppEventsLogger
+import com.firebase.ui.auth.AuthMethodPickerLayout
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
 import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult
@@ -22,10 +21,17 @@ class MainActivity : AppCompatActivity() {
         AuthUI.IdpConfig.FacebookBuilder().build()
     )
 
+    private val authLayout = AuthMethodPickerLayout
+        .Builder(R.layout.auth_custom_layout)
+        .setGoogleButtonId(R.id.google_login_button)
+        .setFacebookButtonId(R.id.facebook_login_button)
+        .build()
+
     private val signInIntent = AuthUI.getInstance()
         .createSignInIntentBuilder()
         .setTheme(R.style.Theme_PokemonRegions)
         .setAvailableProviders(providers)
+        .setAuthMethodPickerLayout(authLayout)
         .build()
 
     private fun onSignInResult(result: FirebaseAuthUIAuthenticationResult?) {

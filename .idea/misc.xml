@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Carlos/AndroidStudioProjects/PokemonRegions/app/src/main/res/drawable/placeholder_image.xml" value="0.289" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/PokemonRegions/app/src/main/res/font/open_sans.xml" value="0.3958333333333333" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/PokemonRegions/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/PokemonRegions/app/src/main/res/layout/auth_custom_layout.xml" value="0.365625" />
