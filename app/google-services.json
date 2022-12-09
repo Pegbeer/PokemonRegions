@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "886961105036",
+    "firebase_url": "https://pokemonregions-1324d-default-rtdb.firebaseio.com",
     "project_id": "pokemonregions-1324d",
     "storage_bucket": "pokemonregions-1324d.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "886961105036-fevr8sd6cj3869b70kg9si0rasqllrsn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pokemonregions",
+            "certificate_hash": "e5919bd72c1bbf577e80636d4fc80837513ae479"
+          }
+        },
         {
           "client_id": "886961105036-8k56ge9rrf48ok0764ql1rckkas2fvq6.apps.googleusercontent.com",
           "client_type": 3

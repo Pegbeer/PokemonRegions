@@ -4,8 +4,17 @@
     <string name="facebook_client_token" translatable="false">0e6419c2796ae0193667d4c1c8145878</string>
     <string name="facebook_login_protocol_scheme" translatable="false">fb1573390259777879</string>
 
+    <string name="ok">Ok</string>
     <string name="login_head">Welcome to the Pokemon Team Maker</string>
     <string name="login_sub_title">Before start making your dream teams we have to ensure your profile</string>
     <string name="login_with_facebook">Sign in with Facebook.</string>
     <string name="login_with_google">Sign in with Google</string>
+    <string name="error_title_dialog">Something went wrong…</string>
+    <string name="error_default_text_dialog">We could not process the action :( \n Please try again. </string>
+
+    <string name="home_bar_title" formatted="true">%s&#39;s Teams</string>
+    <string name="type_card_preffix" formatted="true">Type: %s</string>
+
+    <string name="regions">Regions</string>
+    <string name="create_team">Create team</string>
 </resources>
