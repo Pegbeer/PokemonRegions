@@ -1,25 +1,31 @@
 package com.example.pokemonregions.ui
 
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.TypedValue
+import android.view.View
 import androidx.activity.viewModels
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.example.pokemonregions.R
 import com.example.pokemonregions.core.Result
 import com.example.pokemonregions.databinding.ActivityMainBinding
 import com.example.pokemonregions.ui.adapter.RegionsAdapter
-import com.example.pokemonregions.ui.adapter.TeamsAdapter
+import com.example.pokemonregions.ui.view.RegionActivity
 import com.example.pokemonregions.ui.viewmodel.MainViewModel
 import com.firebase.ui.auth.AuthMethodPickerLayout
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
 import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult
+import com.google.android.material.badge.BadgeDrawable
+import com.google.android.material.badge.BadgeUtils
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlin.system.exitProcess
@@ -31,8 +37,11 @@ class MainActivity : AppCompatActivity() {
 
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
+    private val regionIntent by lazy { Intent(this,RegionActivity::class.java) }
 
     private val regionsAdapter = RegionsAdapter()
+
+    private val badgeColor = TypedValue()
 
     private val errorDialog by lazy {
         MaterialAlertDialogBuilder(this)
@@ -45,6 +54,14 @@ class MainActivity : AppCompatActivity() {
             .create()
     }
 
+    private val badgeDrawable by lazy {
+        theme.resolveAttribute(com.google.android.material.R.attr.colorError,badgeColor,true)
+        BadgeDrawable.create(this).apply {
+            isVisible = true
+            backgroundColor = badgeColor.data
+            number = 0
+        }
+    }
 
     private val signInLauncher = registerForActivityResult(
         FirebaseAuthUIActivityResultContract()
@@ -121,9 +138,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initRecycler(){
-        binding.regionsRecyclerView.adapter = regionsAdapter
+        binding.regionsLayout.regionsRecyclerView.adapter = regionsAdapter
     }
 
+    @SuppressLint("UnsafeOptInUsageError")
     private fun observeLiveData(){
         viewModel.errorDialog.observe(this){ e ->
             e.getContentIfNotHandled().let{
@@ -143,31 +161,48 @@ class MainActivity : AppCompatActivity() {
                         setContentView(R.layout.loading_start_view)
                     }
                 }else{
-                    teamsAdapter.submitList(it.teams)
-                    setContentView(binding.root)
+                    viewModel.downloadRegions()
+                    withContext(Dispatchers.Main){
+                        BadgeUtils.attachBadgeDrawable(badgeDrawable,binding.homeToolbar,R.id.teams_option_menu)
+                        setContentView(binding.root)
+                    }
                 }
             }
         }
 
         lifecycleScope.launch(Dispatchers.IO){
             viewModel.regions.collect{
-                when(it.status){
-                    Result.Status.LOADING ->{
-
-                    }
-                    Result.Status.ERROR ->{
-
-                    }
-                    Result.Status.SUCCESS ->{
-
+                withContext(Dispatchers.Main){
+                    when(it.status){
+                        Result.Status.LOADING ->{
+                            setContentView(R.layout.loading_start_view)
+                        }
+                        Result.Status.ERROR ->{
+                            showEmptyState()
+                        }
+                        Result.Status.SUCCESS ->{
+                            regionsAdapter.submitList(it.data)
+                            showRegions()
+                        }
                     }
                 }
             }
         }
     }
 
+    private fun showEmptyState() {
+        binding.regionsLayout.root.visibility = View.GONE
+        binding.emptyHomeState.root.visibility = View.VISIBLE
+    }
+
+    private fun showRegions(){
+        binding.regionsLayout.root.visibility = View.VISIBLE
+        binding.emptyHomeState.root.visibility = View.GONE
+    }
+
     private fun closeApp() {
         moveTaskToBack(false)
         exitProcess(0)
     }
+
 }

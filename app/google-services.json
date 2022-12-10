@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "886961105036-nbkas41a6cvkkfujqvuf78ia0minplen.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pokemonregions",
+            "certificate_hash": "ad291ce37dda53c79aebf6b077400cb40286c0c7"
+          }
+        },
+        {
           "client_id": "886961105036-8k56ge9rrf48ok0764ql1rckkas2fvq6.apps.googleusercontent.com",
           "client_type": 3
         }

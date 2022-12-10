@@ -12,9 +12,12 @@
     <string name="error_title_dialog">Something went wrong…</string>
     <string name="error_default_text_dialog">We could not process the action :( \n Please try again. </string>
 
-    <string name="home_bar_title" formatted="true">%s&#39;s Teams</string>
+    <string name="home_bar_title" formatted="true">Teams</string>
     <string name="type_card_preffix" formatted="true">Type: %s</string>
 
     <string name="regions">Regions</string>
     <string name="create_team">Create team</string>
+    <string name="empty_message">There is no much to do here…</string>
+    <string name="profile">Profile</string>
+    <string name="sign_out">Cerrar Sesion</string>
 </resources>

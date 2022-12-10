@@ -7,7 +7,6 @@ import retrofit2.http.Url
 
 interface IApiClient {
 
-
     @GET
     suspend fun downloadRegions(
         @Url url:String

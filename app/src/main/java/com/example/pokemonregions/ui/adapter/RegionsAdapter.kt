@@ -1,5 +1,6 @@
 package com.example.pokemonregions.ui.adapter
 
+import android.content.Intent
 import com.example.pokemonregions.data.model.Region
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
@@ -7,8 +8,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import com.example.pokemonregions.databinding.CardRegionBinding
+import com.example.pokemonregions.ui.view.RegionActivity
+import com.example.pokemonregions.utils.capitalize
 
-class RegionsAdapter : RecyclerView.Adapter<RegionsAdapter.RegionsViewHolder>() {
+class RegionsAdapter() : RecyclerView.Adapter<RegionsAdapter.RegionsViewHolder>() {
 
     private val diffCallback = object : DiffUtil.ItemCallback<Region>() {
 
@@ -25,7 +28,7 @@ class RegionsAdapter : RecyclerView.Adapter<RegionsAdapter.RegionsViewHolder>() 
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RegionsViewHolder {
-        return RegionsViewHolder(CardRegionBinding.inflate(LayoutInflater.from(parent.context)))
+        return RegionsViewHolder(CardRegionBinding.inflate(LayoutInflater.from(parent.context),parent,false))
     }
 
     override fun onBindViewHolder(holder: RegionsViewHolder, position: Int) {
@@ -36,14 +39,23 @@ class RegionsAdapter : RecyclerView.Adapter<RegionsAdapter.RegionsViewHolder>() 
         return differ.currentList.size
     }
 
-    fun submitList(list: List<Region>) {
+    fun submitList(list: List<Region>?) {
         differ.submitList(list)
     }
 
-    class RegionsViewHolder(private val binding:CardRegionBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class RegionsViewHolder(private val binding:CardRegionBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: Region) = with(binding) {
-            name = item.name
+            name = item.name.capitalize()
+            root.setOnClickListener {
+                val intent = Intent(it.context,RegionActivity::class.java)
+                intent.putExtra(REGION_SELECTED,name)
+                it.context.startActivity(intent)
+            }
         }
+    }
+
+    companion object{
+        const val REGION_SELECTED = "regionSelected"
     }
 }

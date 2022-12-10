@@ -4,20 +4,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/munchlax_empty_view"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            app:lottie_fileName="empty_animation.json"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:lottie_rawRes="@raw/empty_animation"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.3" />
+            app:layout_constraintVertical_bias="0.4" />
 
         <TextView
             android:layout_width="match_parent"
@@ -28,10 +28,11 @@
             app:layout_constraintTop_toBottomOf="@id/munchlax_empty_view"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintVertical_bias="0.0"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="18dp"
             android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
             android:textColor="?attr/colorSecondary"
-            android:text="There is nothing to eat here, Munchlax..."/>
+            android:text="@string/empty_message"
+            android:textAlignment="center"/>
 
 
 

@@ -9,9 +9,12 @@
     <string name="error_title_dialog">Algo salió mal…</string>
     <string name="error_default_text_dialog">No hemos podido procesar la acción :( \n Por favor, intenta de nuevo. </string>
 
-    <string name="home_bar_title" formatted="true">Equipos de %s</string>
+    <string name="home_bar_title" formatted="true">Equipos</string>
     <string name="type_card_preffix" formatted="true">Tipo: %s</string>
 
     <string name="regions">Regiones</string>
     <string name="create_team">Crear Equipo</string>
+    <string name="empty_message">No hay mucho que hacer aqui…</string>
+    <string name="profile">Perfil</string>
+    <string name="sign_out">Log Out</string>
 </resources>
