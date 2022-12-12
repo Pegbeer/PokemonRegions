@@ -3,10 +3,14 @@ package com.example.pokemonregions.ui
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.IntentSender
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.View
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContract
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
@@ -37,10 +41,6 @@ class MainActivity : AppCompatActivity() {
 
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
-    private val regionIntent by lazy { Intent(this,RegionActivity::class.java) }
-
-    private val regionsAdapter = RegionsAdapter()
-
     private val badgeColor = TypedValue()
 
     private val errorDialog by lazy {
@@ -67,6 +67,20 @@ class MainActivity : AppCompatActivity() {
         FirebaseAuthUIActivityResultContract()
     ){ res ->
         this.onSignInResult(res)
+    }
+
+    private val activityResult = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ){
+
+    }
+
+    private val regionsAdapter = RegionsAdapter{
+        val intent = Intent(this, RegionActivity::class.java)
+        val bundle = Bundle()
+        bundle.putSerializable(RegionsAdapter.REGION_SELECTED,it)
+        intent.putExtras(bundle)
+        activityResult.launch(intent)
     }
 
     private val providers = arrayListOf(
@@ -154,6 +168,23 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        viewModel.regions.observe(this){
+            when(it.status){
+                Result.Status.LOADING ->{
+                    showEmptyState()
+                }
+
+                Result.Status.SUCCESS ->{
+                    regionsAdapter.submitList(it.data)
+                    showRegions()
+                }
+
+                Result.Status.ERROR ->{
+                    viewModel.showErrorDialog(it.error?.message)
+                }
+            }
+        }
+
         lifecycleScope.launch(Dispatchers.IO){
             viewModel.user.collect{
                 if(it == null){
@@ -161,29 +192,9 @@ class MainActivity : AppCompatActivity() {
                         setContentView(R.layout.loading_start_view)
                     }
                 }else{
-                    viewModel.downloadRegions()
                     withContext(Dispatchers.Main){
                         BadgeUtils.attachBadgeDrawable(badgeDrawable,binding.homeToolbar,R.id.teams_option_menu)
                         setContentView(binding.root)
-                    }
-                }
-            }
-        }
-
-        lifecycleScope.launch(Dispatchers.IO){
-            viewModel.regions.collect{
-                withContext(Dispatchers.Main){
-                    when(it.status){
-                        Result.Status.LOADING ->{
-                            setContentView(R.layout.loading_start_view)
-                        }
-                        Result.Status.ERROR ->{
-                            showEmptyState()
-                        }
-                        Result.Status.SUCCESS ->{
-                            regionsAdapter.submitList(it.data)
-                            showRegions()
-                        }
                     }
                 }
             }

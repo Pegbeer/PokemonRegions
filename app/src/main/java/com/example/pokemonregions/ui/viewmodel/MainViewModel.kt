@@ -12,6 +12,7 @@ import com.google.firebase.auth.FirebaseUser
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -22,8 +23,6 @@ class MainViewModel @Inject constructor(
 ) : BaseViewModel() {
 
     val user = MutableStateFlow<User?>(null)
-
-    val regions = MutableStateFlow<Result<List<Region>>>(Result.loading())
 
 
     suspend fun createUser(authUser:FirebaseUser?){
@@ -51,11 +50,9 @@ class MainViewModel @Inject constructor(
         this.user.emit(user)
     }
 
-    fun downloadRegions(){
-        viewModelScope.launch {
-            apiService.downloadRegions().collect{
-                regions.emit(it)
-            }
+    val regions = liveData {
+        apiService.queryRegions().collect{
+            emit(it)
         }
     }
 

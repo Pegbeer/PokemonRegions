@@ -1,0 +1,10 @@
+query Regions{
+    pokemon_v2_region{
+        id
+        name
+        generation: pokemon_v2_generations{
+            id
+            name
+        }
+    }
+}

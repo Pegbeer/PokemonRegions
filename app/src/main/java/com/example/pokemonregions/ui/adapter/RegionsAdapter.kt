@@ -1,6 +1,7 @@
 package com.example.pokemonregions.ui.adapter
 
 import android.content.Intent
+import android.os.Bundle
 import com.example.pokemonregions.data.model.Region
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
@@ -11,7 +12,9 @@ import com.example.pokemonregions.databinding.CardRegionBinding
 import com.example.pokemonregions.ui.view.RegionActivity
 import com.example.pokemonregions.utils.capitalize
 
-class RegionsAdapter() : RecyclerView.Adapter<RegionsAdapter.RegionsViewHolder>() {
+class RegionsAdapter(
+    private val onClick:(Region) -> Unit
+) : RecyclerView.Adapter<RegionsAdapter.RegionsViewHolder>() {
 
     private val diffCallback = object : DiffUtil.ItemCallback<Region>() {
 
@@ -48,9 +51,12 @@ class RegionsAdapter() : RecyclerView.Adapter<RegionsAdapter.RegionsViewHolder>(
         fun bind(item: Region) = with(binding) {
             name = item.name.capitalize()
             root.setOnClickListener {
-                val intent = Intent(it.context,RegionActivity::class.java)
-                intent.putExtra(REGION_SELECTED,name)
-                it.context.startActivity(intent)
+                onClick(item)
+                /*val intent = Intent(it.context,RegionActivity::class.java)
+                val bundle = Bundle()
+                bundle.putSerializable(REGION_SELECTED,item)
+                intent.putExtras(bundle)
+                it.context.startActivity(intent)*/
             }
         }
     }

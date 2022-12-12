@@ -16,8 +16,12 @@
     <string name="type_card_preffix" formatted="true">Type: %s</string>
 
     <string name="regions">Regions</string>
+    <string name="pokemons">Pokemons</string>
     <string name="create_team">Create team</string>
     <string name="empty_message">There is no much to do here…</string>
     <string name="profile">Profile</string>
     <string name="sign_out">Cerrar Sesion</string>
+    <string name="pokemon_added">Pokemon added</string>
+    <string name="pokemons_by_team">Only 6 pokemons by team</string>
+    <string name="save_team">Save team</string>
 </resources>

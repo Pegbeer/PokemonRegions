@@ -5,6 +5,9 @@ plugins {
     id("com.google.gms.google-services")
     id("com.google.firebase.crashlytics")
     kotlin("kapt")
+    id("com.apollographql.apollo3").version("3.7.2")
+    kotlin("plugin.serialization").version("1.7.10")
+
 }
 
 android {
@@ -47,11 +50,14 @@ dependencies {
     val firebaseVersion = "21.1.0"
     val retrofitVersion = "2.9.0"
     val hiltVersion = "2.44.2"
+    val apolloVersion = "3.7.2"
 
     implementation("androidx.core:core-ktx:1.8.0")
     implementation("androidx.appcompat:appcompat:1.5.1")
     implementation("com.google.android.material:material:1.7.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2")
 
     //ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
@@ -84,6 +90,9 @@ dependencies {
     //Lottie
     implementation("com.airbnb.android:lottie:$lottieVersion")
 
+    //Apollo
+    implementation("com.apollographql.apollo3:apollo-runtime:$apolloVersion")
+
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
@@ -91,4 +100,8 @@ dependencies {
 
 kapt{
     correctErrorTypes = true
+}
+
+apollo{
+    packageName.set("com.example")
 }

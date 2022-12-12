@@ -1,6 +1,7 @@
 package com.example.pokemonregions.di
 
 
+import com.apollographql.apollo3.ApolloClient
 import com.example.pokemonregions.data.network.ApiService
 import com.example.pokemonregions.data.network.IApiClient
 import com.google.firebase.database.FirebaseDatabase
@@ -19,6 +20,7 @@ import javax.inject.Singleton
 object NetworkModule {
 
     const val url:String = "https://pokeapi.co/api/v2/"
+    const val apolloUrl:String = "https://beta.pokeapi.co/graphql/v1beta"
 
     @Provides
     @Singleton
@@ -42,5 +44,13 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideApiService(apiClient: IApiClient) = ApiService(apiClient)
+    fun provideApolloClient() = ApolloClient.Builder()
+        .serverUrl(apolloUrl)
+        .build()
+
+    @Provides
+    @Singleton
+    fun provideApiService(apolloClient: ApolloClient) = ApiService(apolloClient)
+
+
 }

@@ -1,0 +1,21 @@
+query Pokemons($gen:String!){
+    species:pokemon_v2_pokemonspecies(
+        where: {
+            pokemon_v2_generation: {
+                name: {
+                    _eq: $gen
+                }
+            }
+        },
+        order_by: {id: asc}) {
+        pokemons:pokemon_v2_pokemons{
+            id
+            name
+            types:pokemon_v2_pokemontypes{
+                type:pokemon_v2_type {
+                    name
+                }
+            }
+        }
+    }
+}

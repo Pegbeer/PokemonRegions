@@ -42,5 +42,13 @@
         <item name="colorSurfaceInverse">@color/md_theme_dark_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/md_theme_dark_inversePrimary</item>
         <item name="fontFamily">@font/open_sans</item>
+        <item name="toolbarStyle">@style/MaterialToolbar</item>
     </style>
+
+    <style name="MaterialToolbar" parent="Widget.Material3.Toolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="menu">@menu/home_menu</item>
+    </style>
+
 </resources>
