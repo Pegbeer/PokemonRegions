@@ -18,7 +18,7 @@ class UserRepository @Inject constructor(
     private val database:FirebaseDatabase
 ) {
 
-    private val databaseUser:DatabaseReference by lazy { database.getReference(User::class.simpleName ?: "User")}
+    private val databaseUser:DatabaseReference by lazy { database.getReference(User::class.java.simpleName)}
 
     fun createUser(user:User):User{
         databaseUser.child(user.id).setValue(user)

@@ -22,6 +22,11 @@
     <string name="profile">Profile</string>
     <string name="sign_out">Cerrar Sesion</string>
     <string name="pokemon_added">Pokemon added</string>
-    <string name="pokemons_by_team">Only 6 pokemons by team</string>
+    <string name="pokemons_by_team">Only 6 Pokemon by team</string>
+    <string name="min_pokemons">Must select 3 Pokemon by team at least.</string>
     <string name="save_team">Save team</string>
+    <string name="enter_name">Enter a name&#58;</string>
+    <string name="name">Name</string>
+    <string name="team_saved">Team saved</string>
+    <string name="warning">Warning</string>
 </resources>
