@@ -80,13 +80,6 @@ dependencies {
     implementation("com.google.dagger:hilt-android:$hiltVersion")
     kapt("com.google.dagger:hilt-compiler:$hiltVersion")
 
-    //Retrofit
-    implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
-    implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
-
-    //CircleImageView
-    implementation("de.hdodenhof:circleimageview:3.1.0")
-
     //Lottie
     implementation("com.airbnb.android:lottie:$lottieVersion")
 
