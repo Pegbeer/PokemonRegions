@@ -8,6 +8,7 @@ import com.example.pokemonregions.data.model.User
 import com.example.pokemonregions.data.network.ApiService
 import com.example.pokemonregions.data.repositories.UserRepository
 import com.example.pokemonregions.core.Result
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -57,6 +58,10 @@ class MainViewModel @Inject constructor(
     }
 
     fun userExists(authUser: FirebaseUser?) = userRepository.checkUserExists(authUser?.email)
+
+    fun signOut() {
+        FirebaseAuth.getInstance().signOut()
+    }
 
 
 }

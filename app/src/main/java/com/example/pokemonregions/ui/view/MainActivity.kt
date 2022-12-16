@@ -6,6 +6,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.TypedValue
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
@@ -147,11 +149,27 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initViews(){
+        setSupportActionBar(binding.homeToolbar)
         binding.regionsLayout.regionsRecyclerView.adapter = regionsAdapter
         binding.regionsLayout.regionTeamsButton.setOnClickListener{
             val intent = Intent(this,TeamsActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean = when(item.itemId){
+        R.id.sign_out_option_menu ->{
+            viewModel.signOut()
+            finishAndRemoveTask()
+            true
+        }else ->{
+            super.onOptionsItemSelected(item)
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu,menu)
+        return true
     }
 
     @SuppressLint("UnsafeOptInUsageError")
