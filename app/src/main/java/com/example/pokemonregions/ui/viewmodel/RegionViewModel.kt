@@ -4,12 +4,10 @@ import androidx.lifecycle.*
 import com.example.pokemonregions.core.Result
 import com.example.pokemonregions.data.model.Generation
 import com.example.pokemonregions.data.model.Pokemon
-import com.example.pokemonregions.data.model.PokemonTeam
 import com.example.pokemonregions.data.network.ApiService
 import com.example.pokemonregions.data.repositories.PokemonRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -48,9 +46,7 @@ class RegionViewModel @Inject constructor(
 
     fun saveTeam(name:String){
         viewModelScope.launch(Dispatchers.IO + viewModelScope.coroutineContext) {
-            val lastTeamNumber = pokemonRepository.lastTeamNumber()
-            val team = PokemonTeam("","",name,lastTeamNumber + 1,_pokemonsSelected)
-            pokemonRepository.saveTeam(team)
+            pokemonRepository.saveTeam(name,_pokemonsSelected.toList())
         }
     }
 

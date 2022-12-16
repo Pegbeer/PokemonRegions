@@ -24,6 +24,7 @@
             android:layout_marginTop="15dp" />
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/region_teams_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
@@ -31,8 +32,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="12dp"
             app:layout_constraintHorizontal_bias="0.95"
-            android:text="@string/create_team"
-            app:icon="@drawable/ic_add_24"/>
+            android:text="@string/teams"
+            app:icon="@drawable/pokeball"
+            app:iconTint="@null"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

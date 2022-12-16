@@ -43,7 +43,7 @@ class RegionActivity : AppCompatActivity() {
 
     private lateinit var badge:BadgeDrawable
 
-    private val pokemonAdapter = PokemonsAdapter{
+    private val pokemonAdapter = PokemonsAdapter(false){ pokemon, _ ->
         if(viewModel.cannotAddPokemon()){
             val snack = Snackbar.make(binding.root,getString(R.string.pokemons_by_team),Snackbar.LENGTH_LONG)
                 .setBackgroundTint(errorColor.data)
@@ -54,7 +54,7 @@ class RegionActivity : AppCompatActivity() {
             snack.view.layoutParams = layoutParams
             snack.show()
         }else{
-            viewModel.selectPokemon(it)
+            viewModel.selectPokemon(pokemon)
         }
     }
 

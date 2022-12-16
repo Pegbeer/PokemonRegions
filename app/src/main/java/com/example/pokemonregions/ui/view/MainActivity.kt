@@ -1,24 +1,19 @@
-package com.example.pokemonregions.ui
+package com.example.pokemonregions.ui.view
 
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.content.IntentSender
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.View
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.example.pokemonregions.R
 import com.example.pokemonregions.core.Result
 import com.example.pokemonregions.databinding.ActivityMainBinding
 import com.example.pokemonregions.ui.adapter.RegionsAdapter
-import com.example.pokemonregions.ui.view.RegionActivity
 import com.example.pokemonregions.ui.viewmodel.MainViewModel
 import com.firebase.ui.auth.AuthMethodPickerLayout
 import com.firebase.ui.auth.AuthUI
@@ -147,12 +142,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.loading_start_view)
         signInLauncher.launch(signInIntent)
-        initRecycler()
+        initViews()
         observeLiveData()
     }
 
-    private fun initRecycler(){
+    private fun initViews(){
         binding.regionsLayout.regionsRecyclerView.adapter = regionsAdapter
+        binding.regionsLayout.regionTeamsButton.setOnClickListener{
+            val intent = Intent(this,TeamsActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     @SuppressLint("UnsafeOptInUsageError")

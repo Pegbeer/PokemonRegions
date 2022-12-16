@@ -6,15 +6,18 @@
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="128dp"
+        android:layout_height="100dp"
         style="@style/Widget.Material3.CardView.Filled"
         app:cardElevation="6dp"
-        android:layout_margin="4dp">
+        android:focusable="true"
+        android:clickable="true"
+        android:layout_marginHorizontal="4dp"
+        android:layout_marginVertical="5dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="10dp">
+            android:padding="5dp">
 
             <TextView
                 android:id="@+id/title_team_card"
@@ -30,15 +33,15 @@
                 tools:text="Favorite team"/>
 
             <TextView
-                android:id="@+id/type_team_card"
+                android:id="@+id/number_team_card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/title_team_card"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                android:text="@string/type_card_preffix" />
+                android:text="@string/number_team_card_prefix" />
 
             <TextView
                 android:id="@+id/count_team_card"
@@ -46,11 +49,11 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/type_team_card"
+                app:layout_constraintTop_toBottomOf="@id/number_team_card"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintVertical_bias="1.0"
-                tools:text="4/6" />
+                android:text="@string/pokemon_team_counter"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>

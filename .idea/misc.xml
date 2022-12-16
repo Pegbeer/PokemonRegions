@@ -4,11 +4,16 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/PokemonRegions/app/src/main/res/drawable/error_dialog_background.xml" value="0.34" />
+        <entry key="..\:/Users/Carlos/AndroidStudioProjects/PokemonRegions/app/src/main/res/drawable/ic_baseline_archive_24.xml" value="0.266" />
+        <entry key="..\:/Users/Carlos/AndroidStudioProjects/PokemonRegions/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.266" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/PokemonRegions/app/src/main/res/drawable/placeholder_image.xml" value="0.289" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/PokemonRegions/app/src/main/res/font/open_sans.xml" value="0.3958333333333333" />
+        <entry key="..\:/Users/Carlos/AndroidStudioProjects/PokemonRegions/app/src/main/res/layout/activity_detail_team.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/PokemonRegions/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/PokemonRegions/app/src/main/res/layout/activity_region.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Carlos/AndroidStudioProjects/PokemonRegions/app/src/main/res/layout/activity_teams.xml" value="0.365625" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/PokemonRegions/app/src/main/res/layout/auth_custom_layout.xml" value="0.365625" />
+        <entry key="..\:/Users/Carlos/AndroidStudioProjects/PokemonRegions/app/src/main/res/layout/card_edit_pokemon.xml" value="0.365625" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/PokemonRegions/app/src/main/res/layout/card_pokemon.xml" value="0.33" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/PokemonRegions/app/src/main/res/layout/card_region.xml" value="0.365625" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/PokemonRegions/app/src/main/res/layout/card_team.xml" value="0.365625" />
@@ -18,7 +23,9 @@
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/PokemonRegions/app/src/main/res/layout/error_dialog.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/PokemonRegions/app/src/main/res/layout/loading_start_view.xml" value="0.365625" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/PokemonRegions/app/src/main/res/layout/regions_view.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Carlos/AndroidStudioProjects/PokemonRegions/app/src/main/res/menu/edit_menu.xml" value="0.365625" />
         <entry key="..\:/Users/Carlos/AndroidStudioProjects/PokemonRegions/app/src/main/res/menu/home_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Carlos/AndroidStudioProjects/PokemonRegions/app/src/main/res/menu/main_menu.xml" value="0.365625" />
       </map>
     </option>
   </component>

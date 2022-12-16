@@ -4,12 +4,14 @@ import com.example.pokemonregions.databinding.CardPokemonBinding
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import com.example.pokemonregions.utils.capitalize
 
 class PokemonsAdapter(
-    private val onClick:(Pokemon) -> Unit
+    private val isEdit:Boolean,
+    private val onClick:(Pokemon,Boolean) -> Unit
 ) : RecyclerView.Adapter<PokemonsAdapter.PokemonsViewHolder>() {
 
     private val diffCallback = object : DiffUtil.ItemCallback<Pokemon>() {
@@ -49,11 +51,21 @@ class PokemonsAdapter(
 
         fun bind(item: Pokemon) = with(binding) {
             val typeAdapter = PokemonTypeAdapter()
-            typeAdapter.submitList(item.types)
+            typeAdapter.submitList(item.types ?: emptyList())
             pokemonTypesRecycler.adapter = typeAdapter
             pokemonNameTextView.text = item.name.capitalize()
+            if(isEdit){
+                pokemonDeleteButton.isVisible = true
+                pokemonAddButton.isVisible = false
+            }else{
+                pokemonDeleteButton.isVisible = false
+                pokemonAddButton.isVisible = true
+            }
             pokemonAddButton.setOnClickListener {
-                onClick(item)
+                onClick(item,false)
+            }
+            pokemonDeleteButton.setOnClickListener{
+                onClick(item,true)
             }
         }
     }

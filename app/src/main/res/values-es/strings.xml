@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="ok">Ok</string>
+    <string name="yes">Si</string>
+    <string name="no">No</string>
+    <string name="success">Éxito</string>
+    <string name="team_updated">Equipo actualizado</string>
     <string name="app_name">Pokemon Team Maker</string>
     <string name="login_head">Bienvenido al creador de equipos pokémon.</string>
     <string name="login_sub_title">Antes de empezar a crear tus dream team debemos verificar tu perfil.</string>
@@ -10,10 +14,16 @@
     <string name="error_default_text_dialog">No hemos podido procesar la acción :( \n Por favor, intenta de nuevo. </string>
 
     <string name="home_bar_title" formatted="true">Equipos</string>
-    <string name="type_card_preffix" formatted="true">Tipo: %s</string>
+    <string name="type_card_prefix" formatted="true">Tipo: %s</string>
+
+
 
     <string name="regions">Regiones</string>
     <string name="pokemons">Pokemons</string>
+    <string name="teams">Equipos</string>
+    <string name="edit_team">Editar equipo</string>
+    <string name="delete">Borrar</string>
+    <string name="save">Guardar</string>
     <string name="create_team">Crear Equipo</string>
     <string name="empty_message">No hay mucho que hacer aqui…</string>
     <string name="profile">Perfil</string>
@@ -21,9 +31,11 @@
     <string name="pokemon_added">Pokemon seleccionado</string>
     <string name="pokemons_by_team">Solo 6 Pokemon por equipo</string>
     <string name="min_pokemons">Selecciona 3 Pokemon por lo menos.</string>
+    <string name="min_pokemons_on_update">Debe tener 3 Pokemon como mínimo</string>
     <string name="save_team">Guardar equipo</string>
     <string name="enter_name">Introduce un nombre&#58;</string>
-    <string name="name">Name</string>
+    <string name="name">Nombre</string>
     <string name="team_saved">Equipo guardado</string>
     <string name="warning">Advertencia</string>
+    <string name="delete_confirmation">¿Quieres eliminar este equipo?</string>
 </resources>

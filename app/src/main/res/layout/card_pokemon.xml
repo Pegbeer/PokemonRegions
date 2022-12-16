@@ -53,6 +53,19 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"/>
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/pokemon_delete_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.Material3.Button.IconButton.Filled"
+                app:icon="@drawable/ic_baseline_delete_24"
+                app:backgroundTint="?attr/colorError"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pokemon_types_recycler"
+                app:layout_constraintHorizontal_bias="0.0"/>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
