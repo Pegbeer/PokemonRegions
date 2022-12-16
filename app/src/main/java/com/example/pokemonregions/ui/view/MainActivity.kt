@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity() {
 
     private val signInIntent = AuthUI.getInstance()
         .createSignInIntentBuilder()
-        .setTheme(R.style.Theme_PokemonRegions)
+        .setTheme(R.style.MaterialTheme)
         .setAvailableProviders(providers)
         .setAuthMethodPickerLayout(authLayout)
         .build()
