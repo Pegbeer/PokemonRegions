@@ -4,6 +4,8 @@ This Android App example allows you to create Pokemon's teams by region, and sav
 [Google](www.google.com) or [Facebook](https://www.facebook.com) profile. All this through the GraphQL API of
 [Poke Api](https://pokeapi.co).
 
+### Try yourself
+> [You cant test the app here](https://appetize.io/app/5ll3qh2cawdm2cvsdpvzrxuyuu?device=pixel4&osVersion=11.0&scale=100)
 
 ## Libraries
 
